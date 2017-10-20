@@ -2,7 +2,7 @@
 
 ## audio-cleaner.py
 
-### Gloal
+### Goal
 
 - [ ] Downloads an audio file if necessary from a server : [YouTube](https://www.youtube.com)
 - [ ] Download from (s)ftp
