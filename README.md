@@ -20,3 +20,4 @@
 * [youtube-dl](https://github.com/rg3/youtube-dl)
 * [ffmpeg-python](https://github.com/kkroening/ffmpeg-python)
 * [DiscogsTagger](https://github.com/jesseward/discogstagger)
+* [eyeD3](https://github.com/nicfit/eyeD3)
