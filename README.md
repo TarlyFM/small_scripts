@@ -1,8 +1,8 @@
-#Small python scripts
+# Small python scripts
 
-##audio-cleaner.py
+## audio-cleaner.py
 
-###Gloal
+### Gloal
 
 - [ ] Downloads an audio file if necessary from a server : [youtube](https://www.youtube.com) or (s)ftp
 - [ ] Trims scilences at the beginning and ending of the audio file with [ffmpeg](https://github.com/FFmpeg/FFmpeg)
