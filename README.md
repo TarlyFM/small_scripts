@@ -2,12 +2,13 @@
 
 ## audio-cleaner.py
 
-### Gloal
+### Goal
 
-- [ ] Downloads an audio file if necessary from a server : [YouTube](https://www.youtube.com) or (s)ftp
-- [ ] Trims scilences at the beginning and ending of the audio file with [ffmpeg](https://github.com/FFmpeg/FFmpeg)
+- [ ] Downloads an audio file if necessary from a server : [YouTube](https://www.youtube.com)
+- [ ] Download from (s)ftp
+- [ ] Trims silences at the beginning and ending of the audio file with [ffmpeg](https://github.com/FFmpeg/FFmpeg)
 - [ ] Tries to complete metadata with [DiscogsTagger](https://github.com/jesseward/discogstagger)
-- [ ] Stores the file in $HOME/user/music/*Artist*/*Album*/*file*
+- [ ] Stores the file in /usr/share/music/artist/album/song
 - [ ] Calls the function passed as argument (optionnal) with the final absolute path
 
 ### Params
