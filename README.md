@@ -1,6 +1,6 @@
 # Small python scripts
 
-## audio-cleaner.py
+## [song-manager.py](https://github.com/TarlyFM/small_scripts/blob/master/song_manager.py)
 
 ### Goal
 
