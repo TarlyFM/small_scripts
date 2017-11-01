@@ -1,2 +1,2 @@
-youtube-dl==2017.10.20
-ffmpeg-python==2017.06.16
+youtube_dl==2017.10.29
+ffmpeg_python==2017.06.16
