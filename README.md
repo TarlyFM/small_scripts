@@ -4,12 +4,11 @@
 
 ### Goal
 
-- [ ] Downloads an audio file if necessary from a server : [YouTube](https://www.youtube.com)
+- [x] Downloads an audio file if necessary from a server : [YouTube](https://www.youtube.com)
 - [ ] Download from (s)ftp
-- [ ] Trims silences at the beginning and ending of the audio file with [ffmpeg](https://github.com/FFmpeg/FFmpeg)
+- [x] Trims silences at the beginning and ending of the audio file with [ffmpeg](https://github.com/FFmpeg/FFmpeg)
 - [ ] Tries to complete metadata with [DiscogsTagger](https://github.com/jesseward/discogstagger)
-- [ ] Stores the file in /usr/share/music/artist/album/song
-- [ ] Calls the function passed as argument (optionnal) with the final absolute path
+- [x] Stores the file in $HOME/Music
 
 ### Params
 
