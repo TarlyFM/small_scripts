@@ -3,7 +3,7 @@ from setuptools import setup
 setup(name='songmanager',
       version='0.1',
       description='Download songs and process them',
-      url='http://github.com/tarlyfm/UDONscripts',
+      url='https://www.github.com/UDONRadio/UDON_scripts',
       author='Matthew Deville',
       author_email='kemiimek@live.fr',
       license='MIT',
