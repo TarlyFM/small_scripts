@@ -25,28 +25,31 @@ def my_hook(d):
     if d['status'] == 'error':
         raise DownloadError("Ma bite")
 
-ydl_opts = {
-    'format': 'bestaudio/best',
-    'postprocessors': [{
-        'key': 'FFmpegExtractAudio',
-        'preferredcodec': 'mp3',
-        'preferredquality': '320',
-    }],
-    'logger': MyLogger(),
-    'outtmpl': _DEFAULT_PATH + '%(title)s-%(id)s.%(ext)s',
-    'progress_hooks': [my_hook],
-    'noplaylist': True,
-}
+def get_ydl_opts(dest):
+    return {
+        'format': 'bestaudio/best',
+        'postprocessors': [{
+            'key': 'FFmpegExtractAudio',
+            'preferredcodec': 'mp3',
+            'preferredquality': '320',
+        }],
+        'logger': MyLogger(),
+        'outtmpl': dest + '%(title)s-%(id)s.%(ext)s',
+        'progress_hooks': [my_hook],
+        'noplaylist': True,
+        'nocheckcertificate': True,
+    }
 
-def download(link, destination=_DEFAULT_PATH):
+def download(link, dest_dir=_DEFAULT_PATH):
     """
     Where the magic happens
     """
     result = ""
 
-    if not os.path.exists(destination):
-        os.makedirs(destination)
+    if not os.path.exists(dest_dir):
+        os.makedirs(dest_dir)
 
+    ydl_opts = get_ydl_opts(dest_dir)
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         ydl.download([link])
         temp = ydl.extract_info(link)
@@ -54,21 +57,22 @@ def download(link, destination=_DEFAULT_PATH):
 
     return (result)
 
-def postprocess(src, dest_dir = _DEFAULT_OUTPUT):
+def postprocess(src, dest_dir=_DEFAULT_OUTPUT):
     """
     Calls ffmpeg and removes scilences
     """
     def shellquote(s):
         return "'" + s.replace("'", "'\\''") + "'"
 
-    #src = shellquote(src)
-    #dest_dir = shellquote(dest_dir)
-    destination = os.path.join(dest_dir, os.path.basename(src))
-    ffmpeg = 'ffmpeg -i "' + src + '" -af silenceremove=1:0:-50dB "' + destination + '"'
-    os.system(ffmpeg)
-    os.system("rm " + src)
+    if not os.path.exists(dest_dir):
+        os.makedirs(dest_dir)
 
+    destination = os.path.join(dest_dir, os.path.basename(src))
+    ffmpeg = 'ffmpeg -i ' + shellquote(src) + ' -af silenceremove=1:0:-50dB ' + shellquote(destination)
+    os.system(ffmpeg)
+    os.system("rm " + shellquote(src))
     return (destination)
+
 
 if __name__ == '__main__':
     if len(sys.argv) == 2:
