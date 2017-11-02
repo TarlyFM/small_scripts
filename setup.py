@@ -1,6 +1,6 @@
 from setuptools import setup
 
-setup(name='songmanager',
+setup(name='UDON_scripts',
       version='0.1',
       description='Download songs and process them',
       url='https://www.github.com/UDONRadio/UDON_scripts',
