@@ -15,6 +15,9 @@
 * URI or absolute path
 * Optionnal: another function to be called with the absolute path
 
+### Install latest version
+`pip install -e git+https://github.com/UDONRadio/UDON_scripts.git@master#egg=UDON_scripts`
+
 ### Modules required
 
 * [youtube-dl](https://github.com/rg3/youtube-dl)
