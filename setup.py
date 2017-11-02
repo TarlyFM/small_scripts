@@ -7,6 +7,6 @@ setup(name='songmanager',
       author='Matthew Deville',
       author_email='kemiimek@live.fr',
       license='MIT',
-      packages=['songmanager'],
+      packages=['UDON_scripts'],
       install_requires=['youtube_dl'],
       zip_safe=False)
