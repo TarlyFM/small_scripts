@@ -68,7 +68,7 @@ def postprocess(src, dest_dir=_DEFAULT_OUTPUT):
         os.makedirs(dest_dir)
 
     destination = os.path.join(dest_dir, os.path.basename(src))
-    ffmpeg = 'ffmpeg -i ' + shellquote(src) + ' -af silenceremove=1:0:-50dB ' + shellquote(destination)
+    ffmpeg = 'ffmpeg -y -i ' + shellquote(src) + ' -af silenceremove=1:0:-50dB ' + shellquote(destination)
     os.system(ffmpeg)
     os.system("rm " + shellquote(src))
     return (destination)
