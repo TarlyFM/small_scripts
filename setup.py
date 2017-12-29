@@ -8,5 +8,5 @@ setup(name='UDON_scripts',
       author_email='kemiimek@live.fr',
       license='MIT',
       packages=['UDON_scripts'],
-      install_requires=['youtube_dl'],
+      install_requires=['youtube_dl', 'eyed3'],
       zip_safe=False)
