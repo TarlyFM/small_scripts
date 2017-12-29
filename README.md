@@ -24,3 +24,8 @@
 * [ffmpeg-python](https://github.com/kkroening/ffmpeg-python)
 * [DiscogsTagger](https://github.com/jesseward/discogstagger)
 * [eyeD3](https://github.com/nicfit/eyeD3)
+
+### System dependencies
+
+* ffmpeg command
+* libmagic
