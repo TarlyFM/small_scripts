@@ -4,7 +4,7 @@ Song manager
 Ensure downloading, cleaning and storing songs.
 """
 import youtube_dl
-import eyed3
+import mutagen
 import os
 import sys
 import subprocess
@@ -78,27 +78,27 @@ def set_tag(path, artist, title, album = None, genre = None):
     """
     Tags with EyeD3 songs with given parameters
     """
-    audiofile = eyed3.load(path)
-    audiofile.tag.artist = artist
-    audiofile.tag.album = album
-    audiofile.tag.genre = genre
-    audiofile.tag.title = tile
-    audiofile.tag.save()
+    audiofile = EasyID3(path)
+    audiofile['artist'] = artist
+    audiofile['album'] = album
+    audiofile['genre'] = genre
+    audiofile['title'] = tile
+    audiofile.save()
 
 def get_tags(path):
     """
     Gets audio tags if any is available
     Return value: a dictionnary containing all info on the file
     """
-    result = {}
-    trackInfo = eyeD3.Mp3AudioFile(path)
-    tag = trackInfo.getTag()
-    result["path"] = tag.link(path)
-    result["artist"] = tag.getArtist()
-    result["album"] = tag.getAlbum()
-    result["title"] = tag.getTitle()
-    result["play_time"] = datetime.timedelta(seconds=trackInfo.time_secs)
-    return (result)
+    tmp = {}
+    try:
+        tmp['length'] = mutagen.File(path).info.length
+        audiotag = mutagen.easyid3.EasyID3(path)
+        for key, value in audiotag.items():
+            tmp[key] = value
+    except mutagen.MutagenError:
+        return (dict())
+    return (tmp)
 
 if __name__ == '__main__':
     if len(sys.argv) == 2:
